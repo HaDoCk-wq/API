@@ -574,7 +574,7 @@ class AddClientExistentLocation(APIView):
             id=request.data["location"]).first()
 
         client = Client.objects.create(
-            usuari=user, identificador=request.data["name"], token=token, actiu=True, movil=True, localitzacio=location, quarentena=True)
+            usuari=user, identificador=request.data["name"], token=token, actiu=True, movil=False, localitzacio=location, quarentena=True)
 
         for sensor in request.data["sensors"]:
             sensor = Sensor.objects.create(
@@ -608,7 +608,7 @@ class AddClientNewLocation(APIView):
 
         if localitzacio:
             client = Client.objects.create(
-                usuari=user, identificador=request.data["name"], token=token, actiu=True, movil=True, localitzacio=localitzacio, quarentena=True)
+                usuari=user, identificador=request.data["name"], token=token, actiu=True, movil=False, localitzacio=localitzacio, quarentena=True)
 
             for sensor in request.data["sensors"]:
                 sensor = Sensor.objects.create(
@@ -622,7 +622,7 @@ class AddClientNewLocation(APIView):
                 pais=posibleLocalitzacio["country"], localitat=posibleLocalitzacio["city"], latitud=request.data["lat"], longitud=request.data["long"], altitud=0)
 
             client = Client.objects.create(
-                usuari=user, identificador=request.data["name"], token=token, actiu=True, movil=True, localitzacio=localitzacioCrear, quarentena=True)
+                usuari=user, identificador=request.data["name"], token=token, actiu=True, movil=False, localitzacio=localitzacioCrear, quarentena=True)
 
             for sensor in request.data["sensors"]:
                 sensor = Sensor.objects.create(

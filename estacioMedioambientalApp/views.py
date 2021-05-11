@@ -504,7 +504,7 @@ class AddStaticData(APIView):
                         client=client, identificador=key).first()
                     if sensorActual:
                         RegistreMovil.objects.create(hora=request.data["hora"], valor=str(
-                            dada), localitzacio=localitzacioCrear, latitudReal=request.data["lat"], longitudReal=equest.data["long"], sensor=sensorActual)
+                            dada), localitzacio=localitzacioCrear, latitudReal=request.data["lat"], longitudReal=request.data["long"], sensor=sensorActual)
 
                 return Response("Les dades s'han afegit correctament en una localitzacio creada", status=status.HTTP_200_OK)
 
